@@ -44,7 +44,7 @@ namespace NerdStore.Catalogo.Domain
 
         public void AlterarDescricao(string descricao)
         {
-            AssertionConcern.ValidarSeVazio(descricao, "O campo Descricao do produto nao pode estar vazio");
+            Validacoes.ValidarSeVazio(descricao, "O campo Descricao do produto nao pode estar vazio");
             Descricao = descricao;
         }
 
@@ -67,11 +67,11 @@ namespace NerdStore.Catalogo.Domain
 
         public void Validar()
         {
-            AssertionConcern.ValidarSeVazio(Nome, "O campo Nome do produto nao pode estar vazio");
-            AssertionConcern.ValidarSeVazio(Descricao, "O campo Descricao do produto nao pode estar vazio");
-            AssertionConcern.ValidarSerDiferente(CategoriaId, Guid.Empty, "O campo CategoriaId do produto nao pode estar vazio");
-            AssertionConcern.ValidarSerMenorIgualMinimo(Valor, 0, "O campo Valor do produto nao ser menor igual a 0");
-            AssertionConcern.ValidarSeVazio(Imagem, "O campo Imagem do produto nao pode estar vazio");
+            Validacoes.ValidarSeVazio(Nome, "O campo Nome do produto nao pode estar vazio");
+            Validacoes.ValidarSeVazio(Descricao, "O campo Descricao do produto nao pode estar vazio");
+            Validacoes.ValidarSerIgual(CategoriaId, Guid.Empty, "O campo CategoriaId do produto nao pode estar vazio");
+            Validacoes.ValidarSerMenorQue(Valor, 1, "O campo Valor do produto nao ser menor igual a 0");
+            Validacoes.ValidarSeVazio(Imagem, "O campo Imagem do produto nao pode estar vazio");
         }
     }
 }

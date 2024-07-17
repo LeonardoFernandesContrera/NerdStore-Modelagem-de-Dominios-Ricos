@@ -22,8 +22,8 @@ namespace NerdStore.Catalogo.Domain
 
         public void Validar()
         {
-            AssertionConcern.ValidarSeVazio(Nome, "O campo Nome da categoria nao pode estar vazio");
-            AssertionConcern.ValidarSerIgual(Codigo, 0, "O campo Codigo nao pode ser 0");
+            Validacoes.ValidarSeVazio(Nome, "O campo Nome da categoria nao pode estar vazio");
+            Validacoes.ValidarSerIgual(Codigo, 0, "O campo Codigo nao pode ser 0");
         }
     }
 }
